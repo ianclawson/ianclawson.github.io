@@ -1,0 +1,17 @@
+{
+  "name": "ianclawson.github.io",
+  "version": "1.0.0",
+  "description": "chrome-extension-typescript-starter",
+  "scripts": {
+    "thing": "bundle exec jekyll serve"
+  },
+  "author": "Ian Clawson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianclawson/ianclawson.github.io.git"
+  },
+  "dependencies": {
+    "prettier": "^2.2.1"
+  },
+  "devDependencies": {}
+}

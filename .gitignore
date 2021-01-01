@@ -4,3 +4,6 @@
 _site/
 Gemfile.lock
 **/.ruby-version
+node_modules
+tailwind.css
+.DS_Store
