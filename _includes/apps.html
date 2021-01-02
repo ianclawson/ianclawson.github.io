@@ -1,9 +1,18 @@
-<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Apps</h2>
-<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Built with ❤️ by me.</p>
-<div class="d-flex flex-wrap gutter-condensed mb-4">
-  {% for topic in site.apps %}
-    <div class="col-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-      {% include topic-card.html %}
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-gray pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center">
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+        Public Apps and Projects
+      </h2>
+      <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+        Built with ❤️ by me. Some commercial, some just because.
+      </p>
     </div>
-  {% endfor %}
+    <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 lg:max-w-none">
+      {% for app in site.apps %}
+        {% include app-card.html %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
