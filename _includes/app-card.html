@@ -19,8 +19,8 @@
       </p>
       {% if app.web_url %}
       <a href="{{ app.web_url }}" class="block mt-2">
-      {% elsif app.rel_url %}
-      <a href="{{ site.baseurl }}{{ app.rel_url }}" class="block mt-2">
+      {% elsif app.url %}
+      <a href="{{ site.baseurl }}{{ app.url }}" class="block mt-2">
       {% else %}
       <a href="#" class="block mt-2">
       {% endif %}
