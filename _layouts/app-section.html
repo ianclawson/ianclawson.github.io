@@ -2,7 +2,7 @@
 {% include header.html %}
 <div class="bg-white">
     {% for app in site.apps %}
-        {% if current_app_section.app_key == app.app_key %}
+        {% if current_app_section.app_slug == app.slug %}
             {% include app-content.html %}
         {% endif %}
     {% endfor %}

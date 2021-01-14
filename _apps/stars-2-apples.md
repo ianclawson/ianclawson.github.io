@@ -1,5 +1,4 @@
 ---
-app_key: stars-2-apples
 app_name: Stars 2 Apples
 type: Mobile App
 description:

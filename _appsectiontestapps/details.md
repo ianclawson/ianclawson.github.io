@@ -1,5 +1,5 @@
 ---
-app_key: test-app
+app_slug: test-app
 layout: app-section
 ---
 

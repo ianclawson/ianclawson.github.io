@@ -1,6 +1,10 @@
 ---
-app_key: test-app
 app_section_collection: appsectiontestapps
+app_sections:
+  - details
+  - press-kit
+  - privacy-policy
+  - contact
 app_name: Glorious Test App
 type: Mobile App
 description: More details 4 me.

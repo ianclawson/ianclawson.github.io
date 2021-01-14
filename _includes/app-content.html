@@ -1,10 +1,31 @@
 <!-- page relies on `app.app_section_collection` being non-nil -->
 {% assign app_section_list = site[app.app_section_collection] %}
-<!-- handle default current_app_section value -->
+
+<!-- get tabs in order you want if `app.app_sections` front matter exists -->
+<!-- NOTE: using the front matter to determine order is hacky workaround until -->
+<!-- github supports jekyll 4.0 which allows ordering in _config.collections -->
+{% if app.app_sections %}
+  <!-- create array using strange syntax -->
+  {% assign app_section_list_ordered = "" | split: ',' %}
+  <!-- add app_sections to array in order specified in app front matter -->
+  {% for s in app.app_sections %}
+    {% for unordered_section in app_section_list %}
+      {% if s == unordered_section.slug %}
+      <!-- Push section into array -->
+        {% assign app_section_list_ordered = app_section_list_ordered | push: unordered_section %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  <!-- overwrite array -->
+  {% assign app_section_list = app_section_list_ordered %}
+{% endif %}
+
+
+<!-- assign `current_app_section` if no defailt value -->
 {% if current_app_section == nil %}
-  <!-- assign `Details` if exists -->
+  <!-- assign `details` if exists -->
   {% for app_section_item in app_section_list %}
-    {% if app_section_item.title == 'Details' %}
+    {% if app_section_item.slug == 'details' %}
       {% assign current_app_section = app_section_item %}
     {% endif %}
   {% endfor %}
@@ -14,6 +35,10 @@
   {% endif %}
   <!-- if `app_section_collection` does not exist, section content simply won't show :( -->
 {% endif %}
+
+<!-- 
+  CONTENT
+ -->
 
 {% include app-breadcrumbs.html %}
 

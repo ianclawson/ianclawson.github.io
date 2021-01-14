@@ -17,6 +17,11 @@ collections:
   appsectiontestapps:
     output: true
     permalink: /app/test-app/:name/
+    order:
+      - details.md
+      - press-kit.md
+      - privacy-policy.md
+      - contact.md
 
 defaults:
   - scope:
