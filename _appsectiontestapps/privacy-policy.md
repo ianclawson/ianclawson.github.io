@@ -1,6 +1,6 @@
 ---
-parent_app: test-app
-# permalink: /test-app/privacy-policy/
+app_key: test-app
+layout: app-section
 ---
 
 Test App Privacy Policy

@@ -1,0 +1,27 @@
+
+
+<!-- I like this -->
+
+<!-- {% for collection in site.collections %}
+  <h2>Items from {{ collection.label }}</h2>
+  <ul>
+    {% for item in site[collection.label] %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %} -->
+
+
+
+{% for col in site.collections %}
+<p>-----</p>
+<p>col.label</p>
+<p>{{ col.label }}</p>
+<p>col.relative_directory</p>
+<p>{{ col.relative_directory }}</p>
+<p>col.directory</p>
+<p>{{ col.directory }}</p>
+<p>col.output</p>
+<p>{{ col.output }}</p>
+<p>-----</p>
+{% endfor %}

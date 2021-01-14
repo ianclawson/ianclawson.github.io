@@ -1,8 +1,8 @@
-{% assign app_section = page %}
+{% assign current_app_section = page %}
 {% include header.html %}
 <div class="bg-white">
     {% for app in site.apps %}
-        {% if app_section.app_key == app.app_key %}
+        {% if current_app_section.app_key == app.app_key %}
             {% include app-content.html %}
         {% endif %}
     {% endfor %}

@@ -1,55 +1,30 @@
-{% include app-breadcrumbs.html %}
-    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">{{ app.type }}</h2>
-            <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">{{ app.app_name }}</p>
-            <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">{{ app.description }}</p>
-        </div>
-    </div>
+<!-- page relies on `app.app_section_collection` being non-nil -->
+{% assign app_section_list = site[app.app_section_collection] %}
+<!-- handle default current_app_section value -->
+{% if current_app_section == nil %}
+  <!-- assign `Details` if exists -->
+  {% for app_section_item in app_section_list %}
+    {% if app_section_item.title == 'Details' %}
+      {% assign current_app_section = app_section_item %}
+    {% endif %}
+  {% endfor %}
+  <!-- fallback val if still nil -->
+  {% if current_app_section == nil %}
+    {% assign current_app_section = app_section_list %}
+  {% endif %}
+  <!-- if `app_section_collection` does not exist, section content simply won't show :( -->
+{% endif %}
 
-    <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
-  <div>
-    <div class="sm:hidden">
-      <label for="tabs" class="sr-only">Select a tab</label>
-      <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-        <option>Details</option>
-        <option>Privacy Policy</option>
-        <option selected>Contact</option>
-        <option>Press Kit</option>
-      </select>
+{% include app-breadcrumbs.html %}
+
+<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+    <div class="text-center">
+        <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">{{ app.type }}</h2>
+        <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">{{ app.app_name }}</p>
+        <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">{{ app.description }}</p>
     </div>
-    <div class="hidden sm:block">
-      <div class="border-b border-gray-200">
-        <nav class="-mb-px flex" aria-label="Tabs">
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm">
-            Details
-          </a>
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm">
-            Privacy Policy
-          </a>
-          <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
-          <a href="#" class="border-indigo-500 text-indigo-600 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page">
-            Contact
-          </a>
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm">
-            Press Kit
-          </a>
-        </nav>
-      </div>
-    </div>
-  </div>
+</div>
+
+{% include app-section-tabs.html %}
+
+<p>{{current_app_section.content}}</p>
