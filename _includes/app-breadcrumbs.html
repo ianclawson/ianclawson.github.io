@@ -12,7 +12,7 @@
     </nav>
     <nav class="hidden sm:flex" aria-label="Breadcrumb">
       <ol class="flex items-center space-x-4">
-        {% for crumb in page.crumbs %}
+        {% for crumb in app.crumbs %}
           {% if forloop.first %}
           <li>
             <div>
@@ -37,7 +37,7 @@
   <!-- <div class="mt-2 md:flex md:items-center md:justify-between">
     <div class="flex-1 min-w-0">
       <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-        {{ page.name }}
+        {{ app.name }}
       </h2>
     </div>
       <div class="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">

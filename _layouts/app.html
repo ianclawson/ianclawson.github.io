@@ -1,12 +1,6 @@
+{% assign app = page %}
 {% include header.html %}
 <div class="bg-white">
-    {% include app-breadcrumbs.html %}
-    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">{{ page.type }}</h2>
-            <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">{{ page.name }}</p>
-            <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">{{ page.description }}</p>
-        </div>
-    </div>
+  {% include app-content.html %}
 </div>
 {% include footer.html %}

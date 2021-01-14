@@ -1,5 +1,6 @@
 ---
-name: Stars 2 Apples
+app_key: stars-2-apples
+app_name: Stars 2 Apples
 type: Mobile App
 description:
   The Online ESL Teacher's Sidekick. Use built-in (or easily create your own) Rewards and Props to
