@@ -7,6 +7,13 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
+  - jekyll-postcss
+
+# markdown: CommonMarkGhPages
+
+# commonmark:
+#   options: ['SMART', 'FOOTNOTES']
+#   extensions: ['strikethrough', 'autolink', 'table', 'tagfilter']
 
 # permalink: /:year/:month/:day/:title/
 

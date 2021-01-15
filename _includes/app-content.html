@@ -50,6 +50,28 @@
     </div>
 </div>
 
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 {% include app-section-tabs.html %}
 
-<p>{{current_app_section.content}}</p>
+
+{% capture post_body %}
+  <div class="markdown">
+    {{ current_app_section.content | markdownify }}
+  </div>
+{% endcapture %}
+
+{{ post_body }}
+
+
+
+<!-- <div class="markdown">
+  {{ current_app_section.content }}
+</div> -->
