@@ -11,7 +11,6 @@
     "url": "https://github.com/ianclawson/ianclawson.github.io.git"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.3.1",
     "prettier": "^2.2.1"
   },
   "devDependencies": {}
