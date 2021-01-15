@@ -52,4 +52,7 @@
 
 {% include app-section-tabs.html %}
 
-<p>{{current_app_section.content}}</p>
+<!-- <article class="prose prose-xl"> -->
+<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+  {{ current_app_section.content | markdownify }}
+</article>
