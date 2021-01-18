@@ -6,6 +6,7 @@ description:
   help keep students engaged throughout lessons.
 web_url: https://www.stars2apples.com
 image_url: assets/s2a-page.png
+published: true
 crumbs:
   - title: Home
   - title: Stars 2 Apples
