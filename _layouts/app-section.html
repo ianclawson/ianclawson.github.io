@@ -1,0 +1,10 @@
+{% assign current_app_section = page %}
+{% include header.html %}
+<div class="bg-white">
+    {% for app in site.apps %}
+        {% if current_app_section.app_slug == app.slug %}
+            {% include app-content.html %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% include footer.html %}

@@ -11,7 +11,9 @@
     </div>
     <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-1 lg:max-w-none">
       {% for app in site.apps %}
-        {% include app-card.html %}
+        {% if app.published %}
+          {% include app-card.html %}
+        {% endif %}
       {% endfor %}
     </div>
   </div>

@@ -1,0 +1,58 @@
+<!-- page relies on `app.app_section_collection` being non-nil -->
+{% assign app_section_list = site[app.app_section_collection] %}
+
+<!-- get tabs in order you want if `app.app_sections` front matter exists -->
+<!-- NOTE: using the front matter to determine order is hacky workaround until -->
+<!-- github supports jekyll 4.0 which allows ordering in _config.collections -->
+{% if app.app_sections %}
+  <!-- create array using strange syntax -->
+  {% assign app_section_list_ordered = "" | split: ',' %}
+  <!-- add app_sections to array in order specified in app front matter -->
+  {% for s in app.app_sections %}
+    {% for unordered_section in app_section_list %}
+      {% if s == unordered_section.slug %}
+      <!-- Push section into array -->
+        {% assign app_section_list_ordered = app_section_list_ordered | push: unordered_section %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  <!-- overwrite array -->
+  {% assign app_section_list = app_section_list_ordered %}
+{% endif %}
+
+
+<!-- assign `current_app_section` if no defailt value -->
+{% if current_app_section == nil %}
+  <!-- assign `details` if exists -->
+  {% for app_section_item in app_section_list %}
+    {% if app_section_item.slug == 'details' %}
+      {% assign current_app_section = app_section_item %}
+    {% endif %}
+  {% endfor %}
+  <!-- fallback val if still nil -->
+  {% if current_app_section == nil %}
+    {% assign current_app_section = app_section_list %}
+  {% endif %}
+  <!-- if `app_section_collection` does not exist, section content simply won't show :( -->
+{% endif %}
+
+<!-- 
+  CONTENT
+ -->
+
+{% include app-breadcrumbs.html %}
+
+<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+    <div class="text-center">
+        <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">{{ app.type }}</h2>
+        <p class="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">{{ app.app_name }}</p>
+        <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">{{ app.description }}</p>
+    </div>
+</div>
+
+{% include app-section-tabs.html %}
+
+<!-- <article class="prose prose-xl"> -->
+<div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+  {{ current_app_section.content | markdownify }}
+</div>
