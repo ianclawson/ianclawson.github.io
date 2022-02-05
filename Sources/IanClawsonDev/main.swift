@@ -12,8 +12,26 @@ struct IanClawsonDev: Website {
         case posts
     }
 
+    // wish I could have different metadata for different sections
     struct ItemMetadata: WebsiteItemMetadata {
         // Add any site-specific metadata that you want to use here.
+        var itemSectionCollection: String
+        var itemSections: [String] // might not work
+        var itemName: String
+        var itemType: ItemType
+        var appStoreURL: String?
+        var appExternalWebsiteURL: String?
+        var appReleaseDate: Date?
+        var appReleaseDateFormatted: String?
+        
+        var published: Bool
+        var crumbs: [String] // might not work
+
+        enum ItemType: String, WebsiteItemMetadata {
+            case mobileApp = "Mobile App"
+            case website = "Website"
+            case blogPost = "Blog Post"
+        }
     }
 
     // Update these properties to configure your website:
@@ -24,11 +42,9 @@ struct IanClawsonDev: Website {
     var imagePath: Path? { nil }
 }
 
-// This will generate your website using the built-in Foundation theme:
-//try IanClawsonDev().publish(withTheme: .foundation)
-
 try IanClawsonDev().publish(using: [
     .installPlugin(.splash(withClassPrefix: "")),
+    .addItem(StaticItems.TestItem),
     .addMarkdownFiles(),
     .copyResources(),
     .generateHTML(withTheme: .foundation),
@@ -37,7 +53,6 @@ try IanClawsonDev().publish(using: [
 ])
 
 // I guess we CAN use this to deploy to github pages! Let's try it and move away from jekyll!!
-
 // there's Sections, items, pages. Hoping I can leverage items to make subsections
 
 //try IanClawsonDev().publish(withTheme: .foundation)
