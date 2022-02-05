@@ -24,7 +24,12 @@ extension StaticItems {
             appReleaseDate: (try? Date("2019-02-27 21:04", strategy: Date.ParseStrategy.yolo)) ?? Date(),
             appReleaseDateFormatted: "Feb 27, 2019 at 9:04 PM",
             published: true,
-            crumbs: ["Home", "Stars 2 Apples"]
-        )
+            crumbs: ["Home", "Stars 2 Apples"]),
+        tags: [
+            .init("article")
+        ],
+        content: Content(
+            title: "My Test App",
+            description: "The city that never sleeps.")
     )
 }

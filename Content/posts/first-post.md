@@ -8,7 +8,6 @@ itemSections: conformance
 itemName: conformance
 itemType: Blog Post
 
-
 published: true
 crumbs: Home, My first post
 ---

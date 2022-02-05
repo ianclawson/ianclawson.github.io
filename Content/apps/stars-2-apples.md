@@ -3,6 +3,7 @@ itemSectionCollection: appsection-stars2apples
 itemSections: details, privacy-policy, contact
 itemName: Stars2Apples
 itemType: Mobile App
+
 appStoreURL: https://apps.apple.com/us/app/stars-2-apples/id1452027163
 appExternalWebsiteURL: https://www.stars2apples.com
 appReleaseDate: 2019-02-27 21:04

@@ -19,6 +19,7 @@ struct IanClawsonDev: Website {
         var itemSections: [String] // might not work
         var itemName: String
         var itemType: ItemType
+        
         var appStoreURL: String?
         var appExternalWebsiteURL: String?
         var appReleaseDate: Date?
@@ -44,7 +45,7 @@ struct IanClawsonDev: Website {
 
 try IanClawsonDev().publish(using: [
     .installPlugin(.splash(withClassPrefix: "")),
-    .addItem(StaticItems.TestItem),
+//    .addItem(StaticItems.TestItem),
     .addMarkdownFiles(),
     .copyResources(),
     .generateHTML(withTheme: .foundation),
