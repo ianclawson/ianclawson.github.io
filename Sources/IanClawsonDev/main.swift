@@ -3,16 +3,22 @@ import Publish
 import Plot
 import SplashPublishPlugin
 
-// This type acts as the configuration for your website.
+// TODO: List
+/*
+ - have the sections display the subsections
+ - bring in the content
+ - style the css and everything
+ - setup github deployment
+ */
+
 struct IanClawsonDev: Website {
     enum SectionID: String, WebsiteSectionID {
-        // Add the sections that you want your website to contain here:
         case about
         case apps
         case posts
     }
 
-    // wish I could have different metadata for different sections
+    /// wish I could have different metadata for different sections, but alas
     struct ItemMetadata: WebsiteItemMetadata {
         /// the app this page/item or subection belongs to
         var itemAppSection: AppItemSection
@@ -52,7 +58,7 @@ struct IanClawsonDev: Website {
         }
         
         // needs to match subitem names exactly
-        enum AppItemSubsection: String, CaseIterable, WebsiteItemMetadata {
+        enum AppItemSubsection: String, WebsiteItemMetadata {
             case details = "details"
             case contact = "contact"
             case privacyPolicy = "privacy-policy"
@@ -62,7 +68,6 @@ struct IanClawsonDev: Website {
         }
     }
 
-    // Update these properties to configure your website:
     var url = URL(string: "https://ianclawson.dev")!
     var name = "Ian Clawson Dev"
     var description = "A place to showcase my work"

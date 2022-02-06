@@ -12,6 +12,7 @@ struct StaticItems { }
 
 extension StaticItems {
     // I like this, but unclear if I can pull in the associated markdown files this way yet
+    // or if I need to manually include them here
     static var TestItem = Item<IanClawsonDev>(
         path: "test-item-app/asdf",
         sectionID: .apps,
