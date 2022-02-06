@@ -99,8 +99,12 @@ struct MyHTMLFactory: HTMLFactory {
 
     /// make the html for page that's an item in a section
     func makeItemHTML(for item: Item<IanClawsonDev>, context: PublishingContext<IanClawsonDev>) throws -> HTML {
+        
+        // don't show tags if
+        let showTaggedWith: Bool = item.metadata.itemAppSubsection == .noneOrParent
+        
         // if the page is a top-level item w/ subsections, load the HTML for the first subsection instead
-        let items = context.mySubsectionItems(for: item.metadata.itemAppSection)
+        let items = context.subsections(for: item.metadata.itemAppSection)
         if item.metadata.itemAppSubsection == .noneOrParent, !items.isEmpty {
             let itemToLoad: Item<IanClawsonDev>
             if let detail = items.filter({ $0.metadata.itemAppSubsection == .details }).first {
@@ -122,13 +126,15 @@ struct MyHTMLFactory: HTMLFactory {
                     Wrapper {
                         // list off the sections
                         ItemList( // TODO: work to do, but the idea is possible
-                            items: context.mySubsectionItems(for: item.metadata.itemAppSection),
+                            items: context.subsections(for: item.metadata.itemAppSection),
                             site: context.site
                         )
                         Article {
                             Div(item.content.body).class("content")
-                            Span("Tagged with: ")
-                            ItemTagList(item: item, site: context.site)
+                            if showTaggedWith {
+                                Span("Tagged with: ")
+                                ItemTagList(item: item, site: context.site)
+                            }
                         }
                     }
                     SiteFooter()
@@ -335,7 +341,6 @@ private struct SiteFooter: Component {
 // MARK: - Helper Functions and Extensions
 
 internal extension PublishingContext where Site == IanClawsonDev {
-    
     /// Return all items within this website, sorted by a given key path.
     /// - parameter sortingKeyPath: The key path to sort the items by.
     /// - parameter order: The order to use when sorting the items.
@@ -344,8 +349,8 @@ internal extension PublishingContext where Site == IanClawsonDev {
         order: Publish.SortOrder = .ascending
     ) -> [Item<Site>] {
         let items = sections.flatMap { $0.items.filter {
-            $0.metadata.itemAppSubsection == .noneOrParent &&
-            $0.metadata.published == true
+            $0.isTopSection &&
+            $0.isPublished == true
         } }
 
         return items.sorted(
@@ -357,21 +362,35 @@ internal extension PublishingContext where Site == IanClawsonDev {
     /// - parameter itemAppSection: The itemAppSection to return all items for.
     func myTopLevelItems(for section: Section<IanClawsonDev>) -> [Item<IanClawsonDev>] {
         return section.items.filter {
-            $0.metadata.itemAppSubsection == .noneOrParent &&
-            $0.metadata.published == true
+            $0.isTopSection &&
+            $0.published == true
         }
     }
     
     /// Return all subsections that are a part of the section collection.
     /// - parameter itemAppSection: The itemAppSection to return all items for.
-    func mySubsectionItems(for itemAppSection: IanClawsonDev.ItemMetadata.AppItemSection) -> [Item<IanClawsonDev>] {
+    func subsections(for itemAppSection: IanClawsonDev.ItemMetadata.AppItemSection) -> [Item<IanClawsonDev>] {
         return sections.flatMap {
             $0.items.filter {
                 $0.metadata.itemAppSection == itemAppSection &&
-                $0.metadata.itemAppSubsection != .noneOrParent &&
-                $0.metadata.published == true
+                $0.isSubsection &&
+                $0.published == true
             }
         }
+    }
+}
+
+internal extension Item where Site == IanClawsonDev {
+    var isTopSection: Bool {
+        self.metadata.itemAppSubsection == .noneOrParent
+    }
+    
+    var isSubsection: Bool {
+        self.metadata.itemAppSubsection != .noneOrParent
+    }
+    
+    var isPublished: Bool {
+        self.metadata.published
     }
 }
 

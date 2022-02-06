@@ -6,7 +6,7 @@ import SplashPublishPlugin
 // TODO: List
 /*
  ✅ have the sections display the subsections
- - bring in the content
+ ✅ bring in the content
  - style the css and everything (Tailwind baybee)
  - setup github deployment
  */
@@ -21,16 +21,23 @@ struct IanClawsonDev: Website {
     /// wish I could have different metadata for different sections, but alas
     struct ItemMetadata: WebsiteItemMetadata {
         /// the app this page/item or subection belongs to
+        /// NOTE: required on both top-level section and subsections
         var itemAppSection: AppItemSection
         /// if item is subsection, this is the subsection that it is, otherwise this is `noneOrParent`
+        /// NOTE: required on both top-level section and subsections
+
         var itemAppSubsection: AppItemSubsection
         /// the subsections this the top-level item contains (not always a complete list)
-        var itemAppSubsections: [AppItemSubsection]
+        /// NOTE: only available on top-level section
+        var itemAppSubsections: [AppItemSubsection]?
         /// the name of the item
-        var itemName: String
+        /// NOTE: only available on top-level section
+        var itemName: String?
         /// the category of the item (should be same across top-level and subsections)
-        var itemCategory: ItemCategory
+        /// NOTE: only available on top-level section
+        var itemCategory: ItemCategory?
         
+        /// NOTE: all 4 following variables only available on top-level section
         var appStoreURL: String?
         var appExternalWebsiteURL: String?
         var appReleaseDate: Date?
