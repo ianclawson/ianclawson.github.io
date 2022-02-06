@@ -1,6 +1,6 @@
 //
 //  MyHTMLFactory.swift
-//  
+//
 //
 //  Created by Ian Clawson on 2/5/22.
 //
@@ -8,14 +8,6 @@
 import Foundation
 import Publish
 import Plot
-
-extension Theme where Site == IanClawsonDev {
-    static var myTheme: Self {
-        Theme(
-            htmlFactory: MyHTMLFactory(),
-            resourcePaths: ["Resources/css/styles.css"])
-    }
-}
 
 struct MyHTMLFactory: HTMLFactory {
     func makeIndexHTML(for index: Index, context: PublishingContext<IanClawsonDev>) throws -> HTML {

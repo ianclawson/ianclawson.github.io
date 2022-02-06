@@ -8,6 +8,8 @@
 import Foundation
 import Plot
 
+// not in use just yet, here as a reference until I figure out what I want
+
 struct NewsArticle: Component {
     var imagePath: String
     var title: String
