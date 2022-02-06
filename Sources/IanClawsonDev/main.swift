@@ -30,7 +30,9 @@ struct IanClawsonDev: Website {
         var appReleaseDate: Date?
         var appReleaseDateFormatted: String?
         
+        /// wether or not the item is shown in site lists (mostly fitlered from queries)
         var published: Bool
+        /// the breadcrumbs so you can navigate back (in progress, might not work)
         var crumbs: [String] // might not work
 
         enum ItemCategory: String, WebsiteItemMetadata {

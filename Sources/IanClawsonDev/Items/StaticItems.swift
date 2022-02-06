@@ -25,7 +25,7 @@ extension StaticItems {
             appExternalWebsiteURL: "https://www.stars2apples.com",
             appReleaseDate: (try? Date("2019-02-27 21:04", strategy: Date.ParseStrategy.yolo)) ?? Date(),
             appReleaseDateFormatted: "Feb 27, 2019 at 9:04 PM",
-            published: true,
+            published: false,
             crumbs: ["Home", "Stars 2 Apples"]),
         tags: [
             .init("article")

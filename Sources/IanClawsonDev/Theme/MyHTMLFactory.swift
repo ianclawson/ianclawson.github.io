@@ -327,7 +327,10 @@ internal extension PublishingContext where Site == IanClawsonDev {
         sortedBy sortingKeyPath: KeyPath<Item<Site>, T>,
         order: Publish.SortOrder = .ascending
     ) -> [Item<Site>] {
-        let items = sections.flatMap { $0.items.filter { $0.metadata.itemAppSubsection == .noneOrParent } }
+        let items = sections.flatMap { $0.items.filter {
+            $0.metadata.itemAppSubsection == .noneOrParent &&
+            $0.metadata.published == true
+        } }
 
         return items.sorted(
             by: order.myMakeSorter(forKeyPath: sortingKeyPath)
@@ -337,8 +340,9 @@ internal extension PublishingContext where Site == IanClawsonDev {
     /// Return all top-level items that are a part of the section collection.
     /// - parameter itemAppSection: The itemAppSection to return all items for.
     func myTopLevelItems(for section: Section<IanClawsonDev>) -> [Item<IanClawsonDev>] {
-        return sections.flatMap {
-            $0.items.filter { $0.metadata.itemAppSubsection == .noneOrParent }
+        return section.items.filter {
+            $0.metadata.itemAppSubsection == .noneOrParent &&
+            $0.metadata.published == true
         }
     }
     
@@ -348,7 +352,8 @@ internal extension PublishingContext where Site == IanClawsonDev {
         return sections.flatMap {
             $0.items.filter {
                 $0.metadata.itemAppSection == itemAppSection &&
-                $0.metadata.itemAppSubsection != .noneOrParent
+                $0.metadata.itemAppSubsection != .noneOrParent &&
+                $0.metadata.published == true
             }
         }
     }
