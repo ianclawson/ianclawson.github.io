@@ -12,7 +12,7 @@ struct StaticItems { }
 
 extension StaticItems {
     static var TestItem = Item<IanClawsonDev>(
-        path: "test-item-app",
+        path: "test-item-app/asdf",
         sectionID: .apps,
         metadata: .init(
             itemSectionCollection: "appsection-test",

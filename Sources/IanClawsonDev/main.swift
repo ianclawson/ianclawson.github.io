@@ -44,7 +44,7 @@ struct IanClawsonDev: Website {
 
 try IanClawsonDev().publish(using: [
     .installPlugin(.splash(withClassPrefix: "")),
-//    .addItem(StaticItems.TestItem),
+    .addItem(StaticItems.TestItem),
     .addMarkdownFiles(),
     .copyResources(),
 //    .generateHTML(withTheme: .foundation),

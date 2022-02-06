@@ -94,6 +94,7 @@ struct MyHTMLFactory: HTMLFactory {
         )
     }
 
+    // make the html for page that's an item in a section
     func makeItemHTML(for item: Item<IanClawsonDev>, context: PublishingContext<IanClawsonDev>) throws -> HTML {
         HTML(
             .lang(context.site.language),
@@ -103,6 +104,11 @@ struct MyHTMLFactory: HTMLFactory {
                 .components {
                     SiteHeader(context: context, selectedSelectionID: item.sectionID)
                     Wrapper {
+                        // list off the sections
+                        ItemList( // TODO: work to do, but the idea is possible
+                            items: context.items(in: item.metadata.itemSectionCollection),
+                            site: context.site
+                        )
                         Article {
                             Div(item.content.body).class("content")
                             Span("Tagged with: ")
@@ -115,6 +121,7 @@ struct MyHTMLFactory: HTMLFactory {
         )
     }
 
+    // make the html for a page in a section without any items
     func makePageHTML(for page: Page, context: PublishingContext<IanClawsonDev>) throws -> HTML {
         HTML(
             .lang(context.site.language),
@@ -308,3 +315,109 @@ private struct SiteFooter: Component {
         }
     }
 }
+
+// MARK: - good stuff
+
+internal extension PublishingContext where Site == IanClawsonDev {
+    /// Return all items that are a part of the section collection.
+    /// - parameter itemSectionCollection: The itemSectionCollection to return all items for.
+    
+    /// public var allTags: Set<Tag> { tagCache.tags ?? gatherAllTags() }
+    func items(in itemSectionCollection: String) -> [Item<IanClawsonDev>] {
+        return sections.flatMap {
+            $0.items.filter { $0.metadata.itemSectionCollection == itemSectionCollection }
+        }
+        
+    }
+}
+
+//internal extension Website {
+////    /// The path for the website's tag list page.
+////    var tagListPath: Path {
+////        tagHTMLConfig?.basePath ?? .defaultForTagHTML
+////    }
+////
+////    /// Return the relative path for a given section ID.
+////    /// - parameter sectionID: The section ID to return a path for.
+////    func path(for sectionID: SectionID) -> Path {
+////        Path(sectionID.rawValue)
+////    }
+////
+////    /// Return the relative path for a given tag.
+////    /// - parameter tag: The tag to return a path for.
+////    func path(for tag: Tag) -> Path {
+////        let basePath = tagHTMLConfig?.basePath ?? .defaultForTagHTML
+////        return basePath.appendingComponent(tag.normalizedString())
+////    }
+//
+//    func path(for item: Item<IanClawsonDev>, in sectionId: SectionID) -> Path {
+//        let basePath  = path(for: sectionId)
+//
+//        item.metadata.itemSectionCollection
+//        return basePath.appendingComponent(item.path.string)
+////        let basePath = tagHTMLConfig?.basePath ?? .defaultForTagHTML
+////        return basePath.appendingComponent(tag.normalizedString())
+//    }
+//}
+
+
+/// from Plot/API/HTMLComponents
+/*
+    /// A container component that's rendered using the `<article>` element.
+    public typealias Article = ElementComponent<ElementDefinitions.Article>
+     
+    /// A container component that's rendered using the `<button>` element.
+    public typealias Button = ElementComponent<ElementDefinitions.Button>
+     
+    /// A container component that's rendered using the `<div>` element.
+    public typealias Div = ElementComponent<ElementDefinitions.Div>
+     
+    /// A container component that's rendered using the `<fieldset>` element.
+    public typealias FieldSet = ElementComponent<ElementDefinitions.FieldSet>
+     
+    /// A container component that's rendered using the `<footer>` element.
+    public typealias Footer = ElementComponent<ElementDefinitions.Footer>
+     
+    /// A container component that's rendered using the `<h1>` element.
+    public typealias H1 = ElementComponent<ElementDefinitions.H1>
+     
+    /// A container component that's rendered using the `<h2>` element.
+    public typealias H2 = ElementComponent<ElementDefinitions.H2>
+     
+    /// A container component that's rendered using the `<h3>` element.
+    public typealias H3 = ElementComponent<ElementDefinitions.H3>
+     
+    /// A container component that's rendered using the `<h4>` element.
+    public typealias H4 = ElementComponent<ElementDefinitions.H4>
+     
+    /// A container component that's rendered using the `<h5>` element.
+    public typealias H5 = ElementComponent<ElementDefinitions.H5>
+     
+    /// A container component that's rendered using the `<h6>` element.
+    public typealias H6 = ElementComponent<ElementDefinitions.H6>
+     
+    /// A container component that's rendered using the `<header>` element.
+    public typealias Header = ElementComponent<ElementDefinitions.Header>
+     
+    /// A container component that's rendered using the `<li>` element.
+    public typealias ListItem = ElementComponent<ElementDefinitions.ListItem>
+     
+    /// A container component that's rendered using the `<nav>` element.
+    public typealias Navigation = ElementComponent<ElementDefinitions.Navigation>
+     
+    /// A container component that's rendered using the `<p>` element.
+    public typealias Paragraph = ElementComponent<ElementDefinitions.Paragraph>
+     
+    /// A container component that's rendered using the `<span>` element.
+    public typealias Span = ElementComponent<ElementDefinitions.Span>
+     
+    /// A container component that's rendered using the `<caption>` element.
+    public typealias TableCaption = ElementComponent<ElementDefinitions.TableCaption>
+     
+    /// A container component that's rendered using the `<td>` element.
+    public typealias TableCell = ElementComponent<ElementDefinitions.TableCell>
+     
+    /// A container component that's rendered using the `<th>` element.
+    public typealias TableHeaderCell = ElementComponent<ElementDefinitions.TableHeaderCell>
+*/
+
