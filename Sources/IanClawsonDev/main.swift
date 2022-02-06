@@ -14,11 +14,16 @@ struct IanClawsonDev: Website {
 
     // wish I could have different metadata for different sections
     struct ItemMetadata: WebsiteItemMetadata {
-        var itemAppSection: AppItemSection // the app this page/item or subection belongs to
-        var itemAppSubsection: AppItemSubsection // not always a complete list of AppItemSubsections
-        var itemAppSubsections: [AppItemSubsection] // not always a complete list of AppItemSubsections
+        /// the app this page/item or subection belongs to
+        var itemAppSection: AppItemSection
+        /// if item is subsection, this is the subsection that it is, otherwise this is `noneOrParent`
+        var itemAppSubsection: AppItemSubsection
+        /// the subsections this the top-level item contains (not always a complete list)
+        var itemAppSubsections: [AppItemSubsection]
+        /// the name of the item
         var itemName: String
-        var itemType: ItemType
+        /// the category of the item (should be same across top-level and subsections)
+        var itemCategory: ItemCategory
         
         var appStoreURL: String?
         var appExternalWebsiteURL: String?
@@ -28,7 +33,7 @@ struct IanClawsonDev: Website {
         var published: Bool
         var crumbs: [String] // might not work
 
-        enum ItemType: String, WebsiteItemMetadata {
+        enum ItemCategory: String, WebsiteItemMetadata {
             case mobileApp = "Mobile App"
             case website = "Website"
             case blogPost = "Blog Post"

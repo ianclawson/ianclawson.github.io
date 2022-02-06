@@ -316,7 +316,7 @@ private struct SiteFooter: Component {
     }
 }
 
-// MARK: - good stuff
+// MARK: - Helper Functions and Extensions
 
 internal extension PublishingContext where Site == IanClawsonDev {
     

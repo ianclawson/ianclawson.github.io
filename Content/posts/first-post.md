@@ -7,7 +7,7 @@ itemAppSection: none
 itemAppSubsection: none
 itemAppSubsections: none
 itemName: none
-itemType: Blog Post
+itemCategory: Blog Post
 
 published: true
 crumbs: Home, My first post

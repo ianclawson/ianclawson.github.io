@@ -20,7 +20,7 @@ extension StaticItems {
             itemAppSubsection: .noneOrParent,
             itemAppSubsections: [.details, .privacyPolicy],
             itemName: "My Test App",
-            itemType: .mobileApp,
+            itemCategory: .mobileApp,
             appStoreURL: "https://apps.apple.com/us/app/stars-2-apples/id1452027163",
             appExternalWebsiteURL: "https://www.stars2apples.com",
             appReleaseDate: (try? Date("2019-02-27 21:04", strategy: Date.ParseStrategy.yolo)) ?? Date(),

@@ -1,2 +1,2 @@
-#  My Apps
+#  Apps
 

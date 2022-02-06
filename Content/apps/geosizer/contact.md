@@ -3,7 +3,7 @@ itemAppSection: geosizer
 itemAppSubsection: contact
 itemAppSubsections: details, privacy-policy, contact
 itemName: GeoSizer
-itemType: Mobile App
+itemCategory: Mobile App
 
 appStoreURL: https://apps.apple.com/us/app/geosizer/id1604101048
 appReleaseDate: 2022-02-20 13:46

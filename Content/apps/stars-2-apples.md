@@ -3,7 +3,7 @@ itemAppSection: stars-2-apples
 itemAppSubsection: none
 itemAppSubsections: none
 itemName: Stars2Apples
-itemType: Mobile App
+itemCategory: Mobile App
 
 appStoreURL: https://apps.apple.com/us/app/stars-2-apples/id1452027163
 appExternalWebsiteURL: https://www.stars2apples.com
