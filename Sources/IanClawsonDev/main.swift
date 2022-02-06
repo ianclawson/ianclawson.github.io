@@ -14,7 +14,6 @@ struct IanClawsonDev: Website {
 
     // wish I could have different metadata for different sections
     struct ItemMetadata: WebsiteItemMetadata {
-        // Add any site-specific metadata that you want to use here.
         var itemSectionCollection: String
         var itemSections: [String] // might not work
         var itemName: String
@@ -48,7 +47,8 @@ try IanClawsonDev().publish(using: [
 //    .addItem(StaticItems.TestItem),
     .addMarkdownFiles(),
     .copyResources(),
-    .generateHTML(withTheme: .foundation),
+//    .generateHTML(withTheme: .foundation),
+    .generateHTML(withTheme: .myTheme),
     .generateRSSFeed(including: [.posts, .apps]),
     .generateSiteMap(),
 ])
