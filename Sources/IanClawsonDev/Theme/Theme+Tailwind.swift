@@ -97,9 +97,22 @@ struct MyHTMLFactory: HTMLFactory {
         )
     }
 
-    // make the html for page that's an item in a section
+    /// make the html for page that's an item in a section
     func makeItemHTML(for item: Item<IanClawsonDev>, context: PublishingContext<IanClawsonDev>) throws -> HTML {
-        HTML(
+        // if the page is a top-level item w/ subsections, load the HTML for the first subsection instead
+        let items = context.mySubsectionItems(for: item.metadata.itemAppSection)
+        if item.metadata.itemAppSubsection == .noneOrParent, !items.isEmpty {
+            let itemToLoad: Item<IanClawsonDev>
+            if let detail = items.filter({ $0.metadata.itemAppSubsection == .details }).first {
+                itemToLoad = detail
+            } else {
+                itemToLoad = items.first!
+            }
+            return try makeItemHTML(for: itemToLoad, context: context)
+        }
+        
+        // default to other html
+        return HTML(
             .lang(context.site.language),
             .head(for: item, on: context.site),
             .body(
@@ -124,7 +137,7 @@ struct MyHTMLFactory: HTMLFactory {
         )
     }
 
-    // make the html for a page in a section without any items
+    /// make the html for a page in a section without any items
     func makePageHTML(for page: Page, context: PublishingContext<IanClawsonDev>) throws -> HTML {
         HTML(
             .lang(context.site.language),

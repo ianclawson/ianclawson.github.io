@@ -5,7 +5,7 @@ import SplashPublishPlugin
 
 // TODO: List
 /*
- - have the sections display the subsections
+ ✅ have the sections display the subsections
  - bring in the content
  - style the css and everything (Tailwind baybee)
  - setup github deployment
