@@ -100,22 +100,19 @@ struct MyHTMLFactory: HTMLFactory {
     /// make the html for page that's an item in a section
     func makeItemHTML(for item: Item<IanClawsonDev>, context: PublishingContext<IanClawsonDev>) throws -> HTML {
         
-        // don't show tags if
-        let showTaggedWith: Bool = item.metadata.itemAppSubsection == .noneOrParent
-        
         // if the page is a top-level item w/ subsections, load the HTML for the first subsection instead
         let items = context.subsections(for: item.metadata.itemAppSection)
         if item.metadata.itemAppSubsection == .noneOrParent, !items.isEmpty {
             let itemToLoad: Item<IanClawsonDev>
-            if let detail = items.filter({ $0.metadata.itemAppSubsection == .details }).first {
+            if let detail = items.filter({ $0.isDetailsSubsection }).first {
                 itemToLoad = detail
             } else {
                 itemToLoad = items.first!
             }
+            // rEcUrSiOn
             return try makeItemHTML(for: itemToLoad, context: context)
         }
         
-        // default to other html
         return HTML(
             .lang(context.site.language),
             .head(for: item, on: context.site),
@@ -131,7 +128,7 @@ struct MyHTMLFactory: HTMLFactory {
                         )
                         Article {
                             Div(item.content.body).class("content")
-                            if showTaggedWith {
+                            if item.isTopSection {
                                 Span("Tagged with: ")
                                 ItemTagList(item: item, site: context.site)
                             }
@@ -391,6 +388,10 @@ internal extension Item where Site == IanClawsonDev {
     
     var isPublished: Bool {
         self.metadata.published
+    }
+    
+    var isDetailsSubsection: Bool {
+        self.metadata.itemAppSubsection == .details
     }
 }
 
