@@ -28,9 +28,9 @@ struct MyHTMLFactory: HTMLFactory {
                     H1(index.title)
                     Paragraph(context.site.description)
                         .class("description")
-                    H2("Latest content")
+                    H2("Latest content") // should probs
                     ItemList(
-                        items: context.allItems(
+                        items: context.allMyTopLevelItems(
                             sortedBy: \.date,
                             order: .descending
                         ),
@@ -87,7 +87,7 @@ struct MyHTMLFactory: HTMLFactory {
                 SiteHeader(context: context, selectedSelectionID: section.id)
                 Wrapper {
                     H1(section.title)
-                    ItemList(items: section.items, site: context.site)
+                    ItemList(items: context.myTopLevelItems(for: section), site: context.site)
                 }
                 SiteFooter()
             }
@@ -106,7 +106,7 @@ struct MyHTMLFactory: HTMLFactory {
                     Wrapper {
                         // list off the sections
                         ItemList( // TODO: work to do, but the idea is possible
-                            items: context.items(in: item.metadata.itemSectionCollection),
+                            items: context.mySubsectionItems(for: item.metadata.itemAppSection),
                             site: context.site
                         )
                         Article {
@@ -319,17 +319,60 @@ private struct SiteFooter: Component {
 // MARK: - good stuff
 
 internal extension PublishingContext where Site == IanClawsonDev {
-    /// Return all items that are a part of the section collection.
-    /// - parameter itemSectionCollection: The itemSectionCollection to return all items for.
     
-    /// public var allTags: Set<Tag> { tagCache.tags ?? gatherAllTags() }
-    func items(in itemSectionCollection: String) -> [Item<IanClawsonDev>] {
+    /// Return all items within this website, sorted by a given key path.
+    /// - parameter sortingKeyPath: The key path to sort the items by.
+    /// - parameter order: The order to use when sorting the items.
+    func allMyTopLevelItems<T: Comparable>(
+        sortedBy sortingKeyPath: KeyPath<Item<Site>, T>,
+        order: Publish.SortOrder = .ascending
+    ) -> [Item<Site>] {
+        let items = sections.flatMap { $0.items.filter { $0.metadata.itemAppSubsection == .noneOrParent } }
+
+        return items.sorted(
+            by: order.myMakeSorter(forKeyPath: sortingKeyPath)
+        )
+    }
+    
+    /// Return all top-level items that are a part of the section collection.
+    /// - parameter itemAppSection: The itemAppSection to return all items for.
+    func myTopLevelItems(for section: Section<IanClawsonDev>) -> [Item<IanClawsonDev>] {
         return sections.flatMap {
-            $0.items.filter { $0.metadata.itemSectionCollection == itemSectionCollection }
+            $0.items.filter { $0.metadata.itemAppSubsection == .noneOrParent }
         }
-        
+    }
+    
+    /// Return all subsections that are a part of the section collection.
+    /// - parameter itemAppSection: The itemAppSection to return all items for.
+    func mySubsectionItems(for itemAppSection: IanClawsonDev.ItemMetadata.AppItemSection) -> [Item<IanClawsonDev>] {
+        return sections.flatMap {
+            $0.items.filter {
+                $0.metadata.itemAppSection == itemAppSection &&
+                $0.metadata.itemAppSubsection != .noneOrParent
+            }
+        }
     }
 }
+
+// gotta pull this out from the depths of Publish lol
+internal extension Publish.SortOrder {
+    func myMakeSorter<T, V: Comparable>(
+        forKeyPath keyPath: KeyPath<T, V>
+    ) -> (T, T) -> Bool {
+        switch self {
+        case .ascending:
+            return {
+                $0[keyPath: keyPath] < $1[keyPath: keyPath]
+            }
+        case .descending:
+            return {
+                $0[keyPath: keyPath] > $1[keyPath: keyPath]
+            }
+        }
+    }
+}
+
+// path stuff, might be useful yet
 
 //internal extension Website {
 ////    /// The path for the website's tag list page.
@@ -353,7 +396,7 @@ internal extension PublishingContext where Site == IanClawsonDev {
 //    func path(for item: Item<IanClawsonDev>, in sectionId: SectionID) -> Path {
 //        let basePath  = path(for: sectionId)
 //
-//        item.metadata.itemSectionCollection
+//        item.metadata.itemAppSection
 //        return basePath.appendingComponent(item.path.string)
 ////        let basePath = tagHTMLConfig?.basePath ?? .defaultForTagHTML
 ////        return basePath.appendingComponent(tag.normalizedString())

@@ -1,6 +1,7 @@
 ---
-itemSectionCollection: appsection-stars2apples
-itemSections: details, privacy-policy, contact
+itemAppSection: stars-2-apples
+itemAppSubsection: none
+itemAppSubsections: none
 itemName: Stars2Apples
 itemType: Mobile App
 

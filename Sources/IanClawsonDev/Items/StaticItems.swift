@@ -11,12 +11,14 @@ import Publish
 struct StaticItems { }
 
 extension StaticItems {
+    // I like this, but unclear if I can pull in the associated markdown files this way yet
     static var TestItem = Item<IanClawsonDev>(
         path: "test-item-app/asdf",
         sectionID: .apps,
         metadata: .init(
-            itemSectionCollection: "appsection-test",
-            itemSections: ["details", "privacy-policy"],
+            itemAppSection: .test,
+            itemAppSubsection: .noneOrParent,
+            itemAppSubsections: [.details, .privacyPolicy],
             itemName: "My Test App",
             itemType: .mobileApp,
             appStoreURL: "https://apps.apple.com/us/app/stars-2-apples/id1452027163",

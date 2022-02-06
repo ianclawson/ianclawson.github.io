@@ -14,8 +14,9 @@ struct IanClawsonDev: Website {
 
     // wish I could have different metadata for different sections
     struct ItemMetadata: WebsiteItemMetadata {
-        var itemSectionCollection: String
-        var itemSections: [String] // might not work
+        var itemAppSection: AppItemSection // the app this page/item or subection belongs to
+        var itemAppSubsection: AppItemSubsection // not always a complete list of AppItemSubsections
+        var itemAppSubsections: [AppItemSubsection] // not always a complete list of AppItemSubsections
         var itemName: String
         var itemType: ItemType
         
@@ -31,6 +32,26 @@ struct IanClawsonDev: Website {
             case mobileApp = "Mobile App"
             case website = "Website"
             case blogPost = "Blog Post"
+        }
+        
+        // needs to match both item page/folder name exactly
+        enum AppItemSection: String, WebsiteItemMetadata {
+            case geosizer = "geosizer"
+            case stars2apples = "stars-2-apples"
+            case test = "test"
+            // for top-level sections/pages, and for items that
+            // don't have this paradigm (such as posts)
+            case none = "none"
+        }
+        
+        // needs to match subitem names exactly
+        enum AppItemSubsection: String, CaseIterable, WebsiteItemMetadata {
+            case details = "details"
+            case contact = "contact"
+            case privacyPolicy = "privacy-policy"
+            // for top-level sections/pages, and for items that
+            // don't have this paradigm (such as posts)
+            case noneOrParent = "none"
         }
     }
 

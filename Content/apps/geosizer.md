@@ -1,6 +1,7 @@
 ---
-itemSectionCollection: appsection-geosizer
-itemSections: details, privacy-policy, contact
+itemAppSection: geosizer
+itemAppSubsection: none
+itemAppSubsections: details, privacy-policy, contact
 itemName: GeoSizer
 itemType: Mobile App
 
