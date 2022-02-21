@@ -28,10 +28,11 @@ struct MyHTMLFactory: HTMLFactory {
 //            .head(for: index, on: context.site),
             .head(for: index, inMySite: context.site),
             .body {
+                SiteHeader(context: context, selectedSelectionID: nil)
                 
                 MeView()
                 
-                SiteHeader(context: context, selectedSelectionID: nil)
+                
                 Wrapper {
                     H1(index.title)
                     Paragraph(context.site.description)

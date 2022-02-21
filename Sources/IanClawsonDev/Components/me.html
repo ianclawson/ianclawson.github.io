@@ -1,17 +1,5 @@
-//
-//  File.swift
-//  
-//
-//  Created by Ian Clawson on 2/5/22.
-//
+<!-- This example requires Tailwind CSS v2.0+ -->
 
-import Foundation
-import Plot
-
-struct MeView: Component {
-    var body: Component {
-        Node<Any>.raw(
-"""
 <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
   <div class="space-y-12">
     <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
@@ -83,59 +71,3 @@ struct MeView: Component {
     </ul>
   </div>
 </div>
-"""
-        )
-    }
-}
-        
-        
-//struct NewsArticle: Component {
-//    var imagePath: String
-//    var title: String
-//    var description: String
-//
-//    var body: Component {
-//        Article {
-//            Node.h2(.text(title))
-//            Image(url: imagePath, description: "Header image")
-//            H1(title)
-//            Span(description).class("description")
-//        }
-//        .class("news")
-//    }
-//}
-//
-//func newsArticlePage(for article: NewsArticle) -> HTML {
-//    return HTML(.body(
-//        .div(
-//            .class("wrapper"),
-//            .component(article)
-//        )
-//    ))
-//}
-
-
-//
-//struct NewsArticle: Component {
-//    var imagePath: String
-//    var title: String
-//    var description: String
-//
-//    var body: Component {
-//        Article {
-//            Image(url: imagePath, description: "Header image")
-//            H1(title)
-//            Span(description).class("description")
-//        }
-//        .class("news")
-//    }
-//}
-//
-//func newsArticlePage(for article: NewsArticle) -> HTML {
-//    return HTML(.body(
-//        .div(
-//            .class("wrapper"),
-//            .component(article)
-//        )
-//    ))
-//}
