@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import Publish
 import Plot
 
 struct AppListView: Component {
+    
+    var items: [Item<IanClawsonDev>]
+    
     var body: Component {
         Div {
             Div {
@@ -20,7 +24,9 @@ struct AppListView: Component {
                 }
                 .class("text-center")
                 Div {
-                    // TODO: app list here
+                    List(items.filter { $0.isPublished }) { item in
+                        AppCardView(item: item)
+                    }
                 }
                 .class("mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-1 lg:max-w-none")
             }
@@ -33,12 +39,25 @@ struct AppListView: Component {
 
 struct AppCardView: Component {
     
-    // TODO: flesh this all out
+    var item: Item<IanClawsonDev>
+    
+    func image() -> String {
+        if let imagePath = item.metadata.appBannerImagePath {
+            return
+"""
+<img class="h-48 w-full object-cover" src="\(imagePath)" alt="">
+"""
+        }
+        return ""
+    }
     
     var body: Component {
         Div(html:
 """
 <div class="flex-shrink-0">
+    \(
+           image()
+)
     {% if app.image_url %}
     <img class="h-48 w-full object-cover" src="{{ app.image_url }}" alt="">
     {% else %}

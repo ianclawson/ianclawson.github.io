@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  HTMLFactory.swift
 //  
 //
 //  Created by Ian Clawson on 2/6/22.
@@ -119,14 +119,14 @@ internal extension PublishingContext where Site == IanClawsonDev {
         sortedBy sortingKeyPath: KeyPath<Item<Site>, T>,
         order: Publish.SortOrder = .ascending
     ) -> [Item<Site>] {
-        let items = sections.flatMap { $0.items.filter {
-            $0.isTopSection &&
-            $0.isPublished == true
-        } }
+        let items = sections.flatMap {
+            $0.items.filter {
+                $0.isTopSection &&
+                $0.isPublished == true
+            }
+        }
 
-        return items.sorted(
-            by: order.myMakeSorter(forKeyPath: sortingKeyPath)
-        )
+        return items.sorted(by: order.myMakeSorter(forKeyPath: sortingKeyPath))
     }
     
     /// Return all top-level items that are a part of the section collection.

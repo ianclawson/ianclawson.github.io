@@ -42,6 +42,7 @@ struct IanClawsonDev: Website {
         var appExternalWebsiteURL: String?
         var appReleaseDate: Date?
         var appReleaseDateFormatted: String?
+        var appBannerImagePath: String?
         
         /// wether or not the item is shown in site lists (mostly fitlered from queries)
         var published: Bool

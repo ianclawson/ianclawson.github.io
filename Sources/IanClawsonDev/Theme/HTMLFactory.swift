@@ -1,25 +1,13 @@
 //
-//  MyTheme.swift
+//  HTMLFactory.swift
 //  
 //
-//  Created by Ian Clawson on 2/5/22.
+//  Created by Ian Clawson on 2/22/22.
 //
 
 import Foundation
 import Publish
 import Plot
-
-/// theme feels like a misnomer to me as it's not a color/asset pallet but the entire HTML later
-/// if Publish dependency-injected your WebsiteItemMetadata here instead of having the the HTML
-/// functions fetch the data then I could see it, but I digress, publish is still the best
-extension Theme where Site == IanClawsonDev {
-    static var myTheme: Self {
-        Theme(
-            htmlFactory: MyHTMLFactory(),
-            resourcePaths: IanClawsonDev.resourcesForTheme
-        )
-    }
-}
 
 struct MyHTMLFactory: HTMLFactory {
     func makeIndexHTML(for index: Index, context: PublishingContext<IanClawsonDev>) throws -> HTML {
@@ -38,13 +26,13 @@ struct MyHTMLFactory: HTMLFactory {
                     Paragraph(context.site.description)
                         .class("description")
                     H2("Latest content") // should probs
-                    ItemList(
-                        items: context.allMyTopLevelItems(
-                            sortedBy: \.date,
-                            order: .descending
-                        ),
-                        site: context.site
-                    )
+//                    ItemList(
+//                        items: context.allMyTopLevelItems(
+//                            sortedBy: \.date,
+//                            order: .descending
+//                        ),
+//                        site: context.site
+//                    )
                 }
                 SiteFooter()
             }
