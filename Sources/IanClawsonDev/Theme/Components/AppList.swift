@@ -12,6 +12,7 @@ import Plot
 struct AppListView: Component {
     
     var items: [Item<IanClawsonDev>]
+    var site: IanClawsonDev
     
     var body: Component {
         Div {
@@ -41,7 +42,7 @@ struct AppCardView: Component {
     
     var item: Item<IanClawsonDev>
     
-    func image() -> String {
+    func bannerImage() -> String {
         if let imagePath = item.metadata.appBannerImagePath {
             return
 """
@@ -56,36 +57,20 @@ struct AppCardView: Component {
 """
 <div class="flex-shrink-0">
     \(
-           image()
+               bannerImage()
 )
-    {% if app.image_url %}
-    <img class="h-48 w-full object-cover" src="{{ app.image_url }}" alt="">
-    {% else %}
-    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
-    {% endif %}
-    
   </div>
   <div class="flex-1 bg-white p-6 flex flex-col justify-between">
     <div class="flex-1">
       <p class="text-sm font-medium text-indigo-600">
-      {% if app.type %}
-        {{ app.type }}
-      {% else %}
-        Mobile App
-      {% endif %}
+      \(item.metadata.itemCategory?.rawValue ?? IanClawsonDev.ItemMetadata.ItemCategory.mobileApp.rawValue)
       </p>
-      {% if app.web_url %}
-      <a href="{{ app.web_url }}" class="block mt-2">
-      {% elsif app.url %}
-      <a href="{{ site.baseurl }}{{ app.url }}" class="block mt-2">
-      {% else %}
-      <a href="#" class="block mt-2">
-      {% endif %}
+      <a href="\(item.path.absoluteString)" class="block mt-2">
         <p class="text-xl font-semibold">
-        {{ app.title }}
+        \(item.metadata.itemName ?? item.title)
         </p>
         <p class="mt-3 text-base text-gray-500">
-        {{ app.description }}
+        \(item.description)
         </p>
       </a>
     </div>

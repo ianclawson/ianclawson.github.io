@@ -16,16 +16,18 @@ struct MyHTMLFactory: HTMLFactory {
 //            .head(for: index, on: context.site),
             .head(for: index, inMySite: context.site),
             .body {
-                SiteHeader(context: context, selectedSelectionID: nil)
-                
-                MeView()
+//                SiteHeader(context: context, selectedSelectionID: nil)
                 
                 
                 Wrapper {
-                    H1(index.title)
-                    Paragraph(context.site.description)
-                        .class("description")
-                    H2("Latest content") // should probs
+                    MeView()
+                    AppListView(
+                        items: context.allMyTopLevelItems(
+                            sortedBy: \.date,
+                            order: .descending
+                        ),
+                        site: context.site
+                    )
 //                    ItemList(
 //                        items: context.allMyTopLevelItems(
 //                            sortedBy: \.date,
@@ -118,7 +120,7 @@ struct MyHTMLFactory: HTMLFactory {
                     SiteHeader(context: context, selectedSelectionID: item.sectionID)
                     Wrapper {
                         // list off the sections
-                        ItemList( // TODO: work to do, but the idea is possible
+                        ItemList(
                             items: context.subsections(for: item.metadata.itemAppSection),
                             site: context.site
                         )
