@@ -213,7 +213,8 @@ internal extension PublishingContext where Site == IanClawsonDev {
         }
     }
     
-    /// Return all subsections that are a part of the section collection.
+    /// Return the parent item for the subsection
+    /// returns self if already a top level item
     /// - parameter itemAppSection: The itemAppSection to return all items for.
     func parentItem(for itemSubSection: Item<IanClawsonDev>) -> Item<IanClawsonDev> {
         

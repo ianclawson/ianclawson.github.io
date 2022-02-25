@@ -125,6 +125,7 @@ struct MyHTMLFactory: HTMLFactory {
                     Wrapper {
                         BreadCrumbsView(item: item)
                         AppPageHeaderView(topLevelItem: topLevelItem)
+                        AppPageSectionTabs(currentSection: item, subsections: items)
                         ItemList(
                             items: context.subsections(for: item.metadata.itemAppSection),
                             site: context.site
