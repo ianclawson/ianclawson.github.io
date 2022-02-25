@@ -126,17 +126,20 @@ struct MyHTMLFactory: HTMLFactory {
                         BreadCrumbsView(item: item)
                         AppPageHeaderView(topLevelItem: topLevelItem)
                         AppPageSectionTabs(currentSection: item, subsections: items)
-                        ItemList(
-                            items: context.subsections(for: item.metadata.itemAppSection),
-                            site: context.site
-                        )
                         Article {
-                            Div(item.content.body).class("content")
-                            if item.isTopSection {
-                                Span("Tagged with: ")
-                                ItemTagList(item: item, site: context.site)
-                            }
+                            AppPageContentView(item: item)
                         }
+//                        ItemList(
+//                            items: context.subsections(for: item.metadata.itemAppSection),
+//                            site: context.site
+//                        )
+//                        Article {
+//                            Div(item.content.body).class("content")
+//                            if item.isTopSection {
+//                                Span("Tagged with: ")
+//                                ItemTagList(item: item, site: context.site)
+//                            }
+//                        }
                     }
                     SiteFooter()
                 }
