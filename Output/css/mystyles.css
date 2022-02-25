@@ -162,6 +162,42 @@ footer {
     background-color: #fff;
 }
 
+.app-page-content {
+    color: #4a5568;
+}
+
+.app-page-content a {
+    color: #6365f1;
+}
+
+.app-page-content strong {
+    color: #1a202c;
+}
+
+.app-page-content blockquote {
+    color: #1a202c;
+}
+
+.app-page-content h1 {
+    color: #1a202c;
+}
+
+.app-page-content h2 {
+    color: #1a202c;
+}
+
+.app-page-content h3 {
+    color: #1a202c;
+}
+
+.app-page-content h4 {
+    color: #1a202c;
+}
+
+.app-page-content code {
+    color: #111;
+}
+
 /**
 *  MY DARK MODE
 */
@@ -178,12 +214,40 @@ footer {
         background-color: #222;
     }
     
-    .ian-content {
-        
+    .app-page-content {
+        color: #e5e7eb;
     }
     
-    .ian-content h2 {
-      color: #FFF;
+    .app-page-content a {
+        color: #6365f1;
+    }
+    
+    .app-page-content strong {
+        color: #6b7280;
+    }
+    
+    .app-page-content blockquote {
+        color: #444;
+    }
+    
+    .app-page-content h1 {
+        color: #6b7280;
+    }
+    
+    .app-page-content h2 {
+        color: #8b93a3;
+    }
+    
+    .app-page-content h3 {
+        color: #8b93a3;
+    }
+    
+    .app-page-content h4 {
+        color: #8b93a3;
+    }
+    
+    .app-page-content code {
+        color: #111;
     }
     
     /* end */

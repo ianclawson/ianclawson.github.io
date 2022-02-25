@@ -17,7 +17,7 @@ struct AppPageContentView: Component {
 //        Div(item.content.body).class("content")
         Node<Any>.raw(
 """
-<div class="text-left prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
+<div class="text-left prose sm:prose lg:prose-lg xl:prose-xl mx-auto app-page-content">
   \(item.content.body.html)
 </div>
 """
