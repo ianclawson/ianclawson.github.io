@@ -88,13 +88,10 @@ try IanClawsonDev().publish(using: [
     .addItem(StaticItems.TestItem),
     .addMarkdownFiles(),
     .copyResources(),
-//    .generateHTML(withTheme: .foundation),
     .generateHTML(withTheme: .myTheme),
     .generateRSSFeed(including: [.posts, .apps]),
     .generateSiteMap(),
+    .deploy(using: .gitHub("ianclawson/ianclawson.github.io", useSSH: false))
 ])
 
-// I guess we CAN use this to deploy to github pages! Let's try it and move away from jekyll!!
-// there's Sections, items, pages. Hoping I can leverage items to make subsections
-
-//try IanClawsonDev().publish(withTheme: .foundation)
+// inspo: https://briancoyner.github.io/articles/2020-02-25-cocoaheads_publish_notes/
