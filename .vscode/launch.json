@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug IanClawsonDev",
+      "program": "${workspaceFolder:ianclawson.github.io}/.build/debug/IanClawsonDev",
+      "args": [],
+      "cwd": "${workspaceFolder:ianclawson.github.io}",
+      "preLaunchTask": "swift: Build Debug IanClawsonDev"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Release IanClawsonDev",
+      "program": "${workspaceFolder:ianclawson.github.io}/.build/release/IanClawsonDev",
+      "args": [],
+      "cwd": "${workspaceFolder:ianclawson.github.io}",
+      "preLaunchTask": "swift: Build Release IanClawsonDev"
+    }
+  ]
+}
