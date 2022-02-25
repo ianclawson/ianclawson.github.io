@@ -28,6 +28,7 @@ So why shouldn't there be some tool that allows use to compare two countries' sh
 GeoSizer aims to be the easiest and most accessible way to compare the actual size and shape of one geographic feature (a country, state, province, etc.) to another. 
 
 It's as simple as 3 steps:
+
 1. Select a geographic feature by either tapping on the map, or by using the "GO TO" button
 2. Once you've selected a feature, press a single button to take that shape and begin moving it around the world
 3. When you've decided where to place it, press another button to leave the shape there, and view the feature from new angles
