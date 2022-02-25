@@ -11,7 +11,7 @@ appReleaseDate: 2019-02-27 21:04
 appReleaseDateFormatted: Feb 27, 2019 at 9:04 PM
 appBannerImagePath: images/s2a-page.png
 
-date: 2022-02-05 11:33
+date: 2019-02-27 21:04
 description: The Online ESL Teacher's Sidekick. Use built-in (or easily create your own) Rewards and Props to help keep students engaged throughout lessons.
 tags: first, article
 

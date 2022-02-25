@@ -12,14 +12,14 @@ import Plot
 extension IanClawsonDev {
     static var resourcesForTheme: Set<Publish.Path> {
         return [
-            "Resources/css/styles.css",
+            "Resources/css/mystyles.css",
             "Resources/assets/tailwind.min.css",
             "Resources/assets/typography.min.css"
         ]
     }
     static var headStylesheets: [Publish.Path] {
         return [
-            "/styles.css", // doesn't pull in the regular stuff
+            "/mystyles.css",
             "/assets/tailwind.min.css",
             "/assets/typography.min.css"
         ]
@@ -136,7 +136,7 @@ extension MyHTMLFactory {
         var body: Component {
             Footer(html:
 """
-<footer class="bg-white dark:bg-gray-800">
+<footer>
   <div class="mx-auto py-6 px-4 overflow-hidden sm:px-6 lg:px-8">
     <div class="flex justify-center space-x-6">
         <a href="https://github.com/ianclawson" class="text-gray-400 hover:text-gray-500">

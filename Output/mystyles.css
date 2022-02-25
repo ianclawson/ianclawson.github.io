@@ -149,7 +149,37 @@ footer {
     color: #8a8a8a;
 }
 
+/**
+*  MY LIGHT MODE
+*/
+
+
+.app-list-view {
+    background-color: #f6f8fa;
+}
+
+.app-card-view {
+    background-color: #fff;
+}
+
+/**
+*  MY DARK MODE
+*/
+
 @media (prefers-color-scheme: dark) {
+    
+    
+    /* here */
+    .app-list-view {
+        background-color: #333;
+    }
+    
+    .app-card-view {
+        background-color: #222;
+    }
+    
+    /* end */
+    
     body {
         background-color: #222;
     }
