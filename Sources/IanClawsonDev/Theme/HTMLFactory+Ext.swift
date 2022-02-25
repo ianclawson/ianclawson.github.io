@@ -212,6 +212,25 @@ internal extension PublishingContext where Site == IanClawsonDev {
             }
         }
     }
+    
+    /// Return all subsections that are a part of the section collection.
+    /// - parameter itemAppSection: The itemAppSection to return all items for.
+    func parentItem(for itemSubSection: Item<IanClawsonDev>) -> Item<IanClawsonDev> {
+        
+        if itemSubSection.isTopSection {
+            return itemSubSection
+        }
+        
+        let candidates = sections.flatMap {
+            $0.items.filter {
+                $0.metadata.itemAppSection == itemSubSection.metadata.itemAppSection &&
+                $0.isTopSection &&
+                $0.isPublished == true
+            }
+        }
+        
+        return candidates.first ?? itemSubSection // probably a bad default but meh
+    }
 }
 
 internal extension Item where Site == IanClawsonDev {

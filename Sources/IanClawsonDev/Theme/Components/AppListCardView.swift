@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AppListCardView.swift
 //  
 //
 //  Created by Ian Clawson on 2/24/22.
@@ -9,7 +9,7 @@ import Foundation
 import Publish
 import Plot
 
-struct AppCardView: Component {
+struct AppListCardView: Component {
     
     var item: Item<IanClawsonDev>
     
@@ -26,7 +26,7 @@ struct AppCardView: Component {
     var body: Component {
         Node<Any>.raw(
 """
-<div class="app-card-view flex flex-col rounded-lg shadow-lg overflow-hidden my-10">
+<div class="app-list-card-view flex flex-col rounded-lg shadow-lg overflow-hidden my-10">
       <a href="\(item.path.absoluteString)">
 <div class="flex-shrink-0">
     \(

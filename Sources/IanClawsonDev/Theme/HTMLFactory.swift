@@ -94,6 +94,8 @@ struct MyHTMLFactory: HTMLFactory {
     }
 
     /// make the html for page that's an item in a section
+    /// i.e. `/apps/geosizer`, `/apps/stars-2-apples`, etc.
+    /// also handled subsections like `/apps/geosizer/details`
     func makeItemHTML(for item: Item<IanClawsonDev>, context: PublishingContext<IanClawsonDev>) throws -> HTML {
         
         // if the page is a top-level item w/ subsections attempt to load
@@ -110,16 +112,19 @@ struct MyHTMLFactory: HTMLFactory {
             return try makeItemHTML(for: itemToLoad, context: context)
         }
         
+        let topLevelItem = context.parentItem(for: item)
+        
         return HTML(
             .lang(context.site.language),
             .head(for: item, inMySite: context.site),
 //            .head(for: item, on: context.site),
             .body(
-                .class("item-page"),
+//                .class("item-page"),
                 .components {
-                    SiteHeader(context: context, selectedSelectionID: item.sectionID)
+//                    SiteHeader(context: context, selectedSelectionID: item.sectionID)
                     Wrapper {
-                        // list off the sections
+                        BreadCrumbsView(item: item)
+                        AppPageHeaderView(topLevelItem: topLevelItem)
                         ItemList(
                             items: context.subsections(for: item.metadata.itemAppSection),
                             site: context.site

@@ -26,7 +26,7 @@ struct AppListView: Component {
                 .class("text-center")
                 Div {
                     List(items.filter { $0.isPublished }) { item in
-                        AppCardView(item: item)
+                        AppListCardView(item: item)
                     }
                 }
                 .class("mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-1 lg:max-w-none")
