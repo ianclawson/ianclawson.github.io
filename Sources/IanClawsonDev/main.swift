@@ -14,7 +14,7 @@ import SplashPublishPlugin
 struct IanClawsonDev: Website {
     enum SectionID: String, WebsiteSectionID {
         case about
-        case apps
+        case app
         case posts
     }
 

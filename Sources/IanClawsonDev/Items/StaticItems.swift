@@ -15,7 +15,7 @@ extension StaticItems {
     // or if I need to manually include them here
     static var TestItem = Item<IanClawsonDev>(
         path: "test-item-app/asdf",
-        sectionID: .apps,
+        sectionID: .app,
         metadata: .init(
             itemAppSection: .test,
             itemAppSubsection: .noneOrParent,
