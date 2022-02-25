@@ -89,7 +89,7 @@ try IanClawsonDev().publish(using: [
     .addMarkdownFiles(),
     .copyResources(),
     .generateHTML(withTheme: .myTheme),
-    .generateRSSFeed(including: [.posts, .apps]),
+//    .generateRSSFeed(including: [.posts, .apps]),
     .generateSiteMap(),
     .deploy(using: .gitHub("ianclawson/ianclawson.github.io", useSSH: false))
 ])
