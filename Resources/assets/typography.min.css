@@ -1,20 +1,20 @@
 .prose {
-  
+  color: #4a5568;
   max-width: 65ch;
 }
 .prose [class~='lead'] {
-  
+  color: #4a5568;
   font-size: 1.25em;
   line-height: 1.6;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
 }
 .prose a {
-  ;
+  color: #1a202c;
   text-decoration: underline;
 }
 .prose strong {
-  ;
+  color: #1a202c;
   font-weight: 600;
 }
 .prose ol {
@@ -56,7 +56,7 @@
 .prose blockquote {
   font-weight: 500;
   font-style: italic;
-  ;
+  color: #1a202c;
   border-left-width: 0.25rem;
   border-left-color: #e2e8f0;
   quotes: '\201C''\201D''\2018''\2019';
@@ -71,7 +71,7 @@
   content: close-quote;
 }
 .prose h1 {
-  ;
+  color: #1a202c;
   font-weight: 800;
   font-size: 2.25em;
   margin-top: 0;
@@ -79,7 +79,7 @@
   line-height: 1.1111111;
 }
 .prose h2 {
-  ;
+  color: #1a202c;
   font-weight: 700;
   font-size: 1.5em;
   margin-top: 2em;
@@ -87,7 +87,7 @@
   line-height: 1.3333333;
 }
 .prose h3 {
-  ;
+  color: #1a202c;
   font-weight: 600;
   font-size: 1.25em;
   margin-top: 1.6em;
@@ -95,7 +95,7 @@
   line-height: 1.6;
 }
 .prose h4 {
-  ;
+  color: #1a202c;
   font-weight: 600;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -108,7 +108,7 @@
   margin-top: 0.8571429em;
 }
 .prose code {
-  ;
+  color: #1a202c;
   font-weight: 600;
   font-size: 0.875em;
 }
@@ -159,7 +159,7 @@
   line-height: 1.7142857;
 }
 .prose thead {
-  ;
+  color: #1a202c;
   font-weight: 600;
   border-bottom-width: 1px;
   border-bottom-color: #cbd5e0;
@@ -1008,22 +1008,22 @@
 }
 @media (min-width: 640px) {
   .sm\:prose {
-    
+    color: #4a5568;
     max-width: 65ch;
   }
   .sm\:prose [class~='lead'] {
-    
+    color: #4a5568;
     font-size: 1.25em;
     line-height: 1.6;
     margin-top: 1.2em;
     margin-bottom: 1.2em;
   }
   .sm\:prose a {
-    ;
+    color: #1a202c;
     text-decoration: underline;
   }
   .sm\:prose strong {
-    ;
+    color: #1a202c;
     font-weight: 600;
   }
   .sm\:prose ol {
@@ -1065,7 +1065,7 @@
   .sm\:prose blockquote {
     font-weight: 500;
     font-style: italic;
-    ;
+    color: #1a202c;
     border-left-width: 0.25rem;
     border-left-color: #e2e8f0;
     quotes: '\201C''\201D''\2018''\2019';
@@ -1080,7 +1080,7 @@
     content: close-quote;
   }
   .sm\:prose h1 {
-    ;
+    color: #1a202c;
     font-weight: 800;
     font-size: 2.25em;
     margin-top: 0;
@@ -1088,7 +1088,7 @@
     line-height: 1.1111111;
   }
   .sm\:prose h2 {
-    ;
+    color: #1a202c;
     font-weight: 700;
     font-size: 1.5em;
     margin-top: 2em;
@@ -1096,7 +1096,7 @@
     line-height: 1.3333333;
   }
   .sm\:prose h3 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 1.25em;
     margin-top: 1.6em;
@@ -1104,7 +1104,7 @@
     line-height: 1.6;
   }
   .sm\:prose h4 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -1117,7 +1117,7 @@
     margin-top: 0.8571429em;
   }
   .sm\:prose code {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
   }
@@ -1168,7 +1168,7 @@
     line-height: 1.7142857;
   }
   .sm\:prose thead {
-    ;
+    color: #1a202c;
     font-weight: 600;
     border-bottom-width: 1px;
     border-bottom-color: #cbd5e0;
@@ -2018,22 +2018,22 @@
 }
 @media (min-width: 768px) {
   .md\:prose {
-    
+    color: #4a5568;
     max-width: 65ch;
   }
   .md\:prose [class~='lead'] {
-    
+    color: #4a5568;
     font-size: 1.25em;
     line-height: 1.6;
     margin-top: 1.2em;
     margin-bottom: 1.2em;
   }
   .md\:prose a {
-    ;
+    color: #1a202c;
     text-decoration: underline;
   }
   .md\:prose strong {
-    ;
+    color: #1a202c;
     font-weight: 600;
   }
   .md\:prose ol {
@@ -2075,7 +2075,7 @@
   .md\:prose blockquote {
     font-weight: 500;
     font-style: italic;
-    ;
+    color: #1a202c;
     border-left-width: 0.25rem;
     border-left-color: #e2e8f0;
     quotes: '\201C''\201D''\2018''\2019';
@@ -2090,7 +2090,7 @@
     content: close-quote;
   }
   .md\:prose h1 {
-    ;
+    color: #1a202c;
     font-weight: 800;
     font-size: 2.25em;
     margin-top: 0;
@@ -2098,7 +2098,7 @@
     line-height: 1.1111111;
   }
   .md\:prose h2 {
-    ;
+    color: #1a202c;
     font-weight: 700;
     font-size: 1.5em;
     margin-top: 2em;
@@ -2106,7 +2106,7 @@
     line-height: 1.3333333;
   }
   .md\:prose h3 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 1.25em;
     margin-top: 1.6em;
@@ -2114,7 +2114,7 @@
     line-height: 1.6;
   }
   .md\:prose h4 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -2127,7 +2127,7 @@
     margin-top: 0.8571429em;
   }
   .md\:prose code {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
   }
@@ -2178,7 +2178,7 @@
     line-height: 1.7142857;
   }
   .md\:prose thead {
-    ;
+    color: #1a202c;
     font-weight: 600;
     border-bottom-width: 1px;
     border-bottom-color: #cbd5e0;
@@ -3028,22 +3028,22 @@
 }
 @media (min-width: 1024px) {
   .lg\:prose {
-    
+    color: #4a5568;
     max-width: 65ch;
   }
   .lg\:prose [class~='lead'] {
-    
+    color: #4a5568;
     font-size: 1.25em;
     line-height: 1.6;
     margin-top: 1.2em;
     margin-bottom: 1.2em;
   }
   .lg\:prose a {
-    ;
+    color: #1a202c;
     text-decoration: underline;
   }
   .lg\:prose strong {
-    ;
+    color: #1a202c;
     font-weight: 600;
   }
   .lg\:prose ol {
@@ -3085,7 +3085,7 @@
   .lg\:prose blockquote {
     font-weight: 500;
     font-style: italic;
-    ;
+    color: #1a202c;
     border-left-width: 0.25rem;
     border-left-color: #e2e8f0;
     quotes: '\201C''\201D''\2018''\2019';
@@ -3100,7 +3100,7 @@
     content: close-quote;
   }
   .lg\:prose h1 {
-    ;
+    color: #1a202c;
     font-weight: 800;
     font-size: 2.25em;
     margin-top: 0;
@@ -3108,7 +3108,7 @@
     line-height: 1.1111111;
   }
   .lg\:prose h2 {
-    ;
+    color: #1a202c;
     font-weight: 700;
     font-size: 1.5em;
     margin-top: 2em;
@@ -3116,7 +3116,7 @@
     line-height: 1.3333333;
   }
   .lg\:prose h3 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 1.25em;
     margin-top: 1.6em;
@@ -3124,7 +3124,7 @@
     line-height: 1.6;
   }
   .lg\:prose h4 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -3137,7 +3137,7 @@
     margin-top: 0.8571429em;
   }
   .lg\:prose code {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
   }
@@ -3188,7 +3188,7 @@
     line-height: 1.7142857;
   }
   .lg\:prose thead {
-    ;
+    color: #1a202c;
     font-weight: 600;
     border-bottom-width: 1px;
     border-bottom-color: #cbd5e0;
@@ -4038,22 +4038,22 @@
 }
 @media (min-width: 1280px) {
   .xl\:prose {
-    
+    color: #4a5568;
     max-width: 65ch;
   }
   .xl\:prose [class~='lead'] {
-    
+    color: #4a5568;
     font-size: 1.25em;
     line-height: 1.6;
     margin-top: 1.2em;
     margin-bottom: 1.2em;
   }
   .xl\:prose a {
-    ;
+    color: #1a202c;
     text-decoration: underline;
   }
   .xl\:prose strong {
-    ;
+    color: #1a202c;
     font-weight: 600;
   }
   .xl\:prose ol {
@@ -4095,7 +4095,7 @@
   .xl\:prose blockquote {
     font-weight: 500;
     font-style: italic;
-    ;
+    color: #1a202c;
     border-left-width: 0.25rem;
     border-left-color: #e2e8f0;
     quotes: '\201C''\201D''\2018''\2019';
@@ -4110,7 +4110,7 @@
     content: close-quote;
   }
   .xl\:prose h1 {
-    ;
+    color: #1a202c;
     font-weight: 800;
     font-size: 2.25em;
     margin-top: 0;
@@ -4118,7 +4118,7 @@
     line-height: 1.1111111;
   }
   .xl\:prose h2 {
-    ;
+    color: #1a202c;
     font-weight: 700;
     font-size: 1.5em;
     margin-top: 2em;
@@ -4126,7 +4126,7 @@
     line-height: 1.3333333;
   }
   .xl\:prose h3 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 1.25em;
     margin-top: 1.6em;
@@ -4134,7 +4134,7 @@
     line-height: 1.6;
   }
   .xl\:prose h4 {
-    ;
+    color: #1a202c;
     font-weight: 600;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -4147,7 +4147,7 @@
     margin-top: 0.8571429em;
   }
   .xl\:prose code {
-    ;
+    color: #1a202c;
     font-weight: 600;
     font-size: 0.875em;
   }
@@ -4198,7 +4198,7 @@
     line-height: 1.7142857;
   }
   .xl\:prose thead {
-    ;
+    color: #1a202c;
     font-weight: 600;
     border-bottom-width: 1px;
     border-bottom-color: #cbd5e0;
