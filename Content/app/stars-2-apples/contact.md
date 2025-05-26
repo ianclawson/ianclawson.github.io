@@ -12,5 +12,3 @@ crumbs: Home, Stars2Apples
 # Contact
 
 Support Page: [Github (https://github.com/Stars2Apples/Support)](https://github.com/Stars2Apples/Support)
-
-Business Inquiries: [us@stars2apples.com](us@stars2apples.com)
